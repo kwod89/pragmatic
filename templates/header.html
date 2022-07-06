@@ -1,0 +1,31 @@
+<div class="pragmatic_header">
+    <div>
+        <h1 class="pragmatic_logo">Pragmatic</h1>
+    </div>
+    <div class="pragmatic_header_navbar">
+        <a class="pragmatic_header_nav" href="{% url 'articleapp:list' %}">
+            <span>Article</span>
+        </a>
+        <a class="pragmatic_header_nav" href="{% url 'projectapp:list' %}">
+            <span>Project</span>
+        </a>
+        <a class="pragmatic_header_nav" href="{% url 'subscriptionapp:list' %}">
+            <span>Subscription</span>
+        </a>
+        {% if not user.is_authenticated %}
+            <a class="pragmatic_header_nav" href="{% url 'accountapp:login' %}?next={{ request.path }}">
+                <span>Login</span>
+            </a>
+            <a class="pragmatic_header_nav" href="{% url 'accountapp:create' %}">
+                <span>SignUp</span>
+            </a>
+        {% else %}
+            <a class="pragmatic_header_nav" href="{% url 'accountapp:detail' pk=user.pk %}">
+                <span>MyPage</span>
+            </a>
+            <a class="pragmatic_header_nav" href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+                <span>Logout</span>
+            </a>
+        {% endif %}
+    </div>
+</div>
