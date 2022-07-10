@@ -40,7 +40,7 @@ DATABASES = {
         'USER': 'django',
         #'PASSWORD': read_secret('MYSQL_PASSWORD'),
         'PASSWORD': 'kwon0711',
-        'HOST': 'mariadb', # 도커 네트워크 안에서 container 이름을 통해 접근하므로 중요.
+        'HOST': 'mariadb-pragmatic', # 도커 네트워크 안에서 container 이름을 통해 접근하므로 중요.
         'PORT': '3306',
     }
 }
