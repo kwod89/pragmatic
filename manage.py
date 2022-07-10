@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pragmatic.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pragmatic.settings.local') # 장고 셋팅 파일 경로 설정.
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

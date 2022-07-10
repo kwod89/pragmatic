@@ -1,5 +1,7 @@
 from .base import *
 
+import environ
+
 # docker의 secret에 설정한 값이 container의 파일로 저장되는데 이 값을 가져옴.
 def read_secret(secret_name):
     file = open('/run/secrets/' + secret_name)
@@ -32,8 +34,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django',
         'USER': 'django',
-        'PASSWORD': read_secret('MYSQL_PASSWORD'),
-        'HOST': 'mariadb',
+        #'PASSWORD': read_secret('MYSQL_PASSWORD'),
+        'PASSWORD': 'kwon0711',
+        'HOST': 'mariadb', # 도커 네트워크 안에서 container 이름을 통해 접근하므로 중요.
         'PORT': '3306',
     }
 }
